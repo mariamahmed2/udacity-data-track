@@ -72,7 +72,7 @@ def get_filters():
     print('Hello! Let\'s explore some US bikeshare data!')
     # get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
     city = checkData('Choose the city\n')
-    #display_data(city)
+    display_data(city)
 
     # get user input for month (all, january, february, ... , june)
     month = checkData('Set the month\n')
@@ -209,14 +209,14 @@ def user_stats(df, city):
         print('The count of user gender: ', gender)
 
         # Display earliest, most recent, and most common year of birth
-    earliestBirth = df['Birth Year'].min()
-    print('The Earliest birth :',earliestBirth)
+        earliestBirth = df['Birth Year'].min()
+        print('The Earliest birth :',earliestBirth)
 
-    recentBirth = df['Birth Year'].max()
-    print('The most recent birth :',recentBirth)
+        recentBirth = df['Birth Year'].max()
+        print('The most recent birth :',recentBirth)
 
-    mostBirth = df['Birth Year'].mode()[0]
-    print('The most common birth :',mostBirth)
+        mostBirth = df['Birth Year'].mode()[0]
+        print('The most common birth :',mostBirth)
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
