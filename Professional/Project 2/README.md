@@ -5,7 +5,7 @@ For the final project, you will conduct your own data analysis and create a file
 ### Step One - Choose Your Data Set
 Click [this link](https://s3.amazonaws.com/video.udacity-data.com/topher/2018/July/5b57919a_data-set-options/data-set-options.pdf), to open a document with links and information about data sets that you can investigate for this project. You must choose one of these datasets to complete the project.
 
-###Step Two - Get Organized
+### Step Two - Get Organized
 Eventually you’ll want to submit your project (and share it with friends, family, and employers). Get organized before you begin. We recommend creating a single folder that will eventually contain:
 
 - The report communicating your findings
