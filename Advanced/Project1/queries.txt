@@ -1,0 +1,40 @@
+/* Query 1 - query used for first insight*/
+WITH Table1 AS (SELECT Customer.FirstName, Customer.LastName, Customer.CustomerId, Customer.Country, sum(Invoice.Total) AS invoice_tot
+FROM Customer
+JOIN Invoice
+ON Customer.CustomerId = Invoice.CustomerId
+GROUP BY Customer.CustomerId)
+SELECT Country, MAX(invoice_tot) AS max_invoice
+FROM Table1 
+GROUP by Country
+
+/* Query 2 - query used for second insight*/
+WITH Table1 as (SELECT Customer.FirstName, Customer.LastName, Genre.Name
+From Customer
+INNER JOIN Invoice ON Customer.CustomerId = Invoice.CustomerId
+INNER JOIN InvoiceLine ON Invoice.InvoiceId = InvoiceLine.InvoiceId
+INNER JOIN Track ON InvoiceLine.TrackId = Track.TrackId
+INNER JOIN Genre ON Track.GenreId = Genre.GenreId)
+SELECT Table1.Name , count(Name) as total_num FROM Table1 
+GROUP BY Table1.Name
+ORDER BY total_num DESC
+
+/* Query 3 - query used for third insight*/
+With T1 As (SELECT Artist.ArtistId, Artist.Name, Track.Name As Track_name, Album.Title, Genre.Name
+From Genre
+INNER JOIN Track ON Genre.GenreId == Track.GenreId
+INNER JOIN Album ON Track.AlbumId == Album.AlbumId
+INNER JOIN Artist ON  Album.AlbumId == Artist.ArtistId
+WHERE Genre.Name == "Jazz")
+SELECT T1.ArtistId, T1.Name, count(ArtistId) AS Songs_num From T1
+GROUP BY T1.ArtistId
+ORDER BY songs_num DESC
+
+/* Query 4 - query used for forth insight*/
+SELECT Customer.CustomerId,Customer.FirstName, Customer.LastName, sum(InvoiceLine.UnitPrice) AS total_price
+FROM Customer
+INNER JOIN Invoice ON Customer.CustomerId == Invoice.CustomerId
+INNER JOIN InvoiceLine ON Invoice.InvoiceId == InvoiceLine.InvoiceId
+GROUP by Customer.CustomerId
+ORDER by total_price DESC
+LIMIT 10
