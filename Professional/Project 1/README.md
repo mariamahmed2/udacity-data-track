@@ -1,4 +1,4 @@
-# Data Analysis Professional Track - Udacity
+# Bike Share Data - Data Analysis Professional Track - Udacity
 
 This project explores bike share usage patterns in three major cities: Chicago, New York City, and Washington, DC, using data provided by Motivate, a bike-share system provider for these cities. The purpose of this project is to compute descriptive statistics and gain insights into bike-share usage trends.
 
